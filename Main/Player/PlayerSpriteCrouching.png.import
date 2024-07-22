@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7i2ro2cw2d6r"
-path="res://.godot/imported/PlayerSpritesStanding.png-cf6aaa1ceb53958a58bc5e9e82ff44e2.ctex"
+uid="uid://73r5sowouqj5"
+path="res://.godot/imported/PlayerSpriteCrouching.png-49847f73f6d161b0189df3198c9aadeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/PlayerSpritesStanding.png"
-dest_files=["res://.godot/imported/PlayerSpritesStanding.png-cf6aaa1ceb53958a58bc5e9e82ff44e2.ctex"]
+source_file="res://Main/Player/PlayerSpriteCrouching.png"
+dest_files=["res://.godot/imported/PlayerSpriteCrouching.png-49847f73f6d161b0189df3198c9aadeb.ctex"]
 
 [params]
 

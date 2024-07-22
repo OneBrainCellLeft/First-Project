@@ -14,8 +14,8 @@ extends CharacterBody2D
 var Jump_Buffer = false
 var was_on_floor
 
-var Crouching_Cshape = preload("res://Scenes/PlayerCrouchingCshape.tres")
-var Standing_Cshape = preload("res://Scenes/PlayerStandingCshape.tres")
+var Crouching_Cshape = preload("res://Main/Player/PlayerCrouchingCshape.tres")
+var Standing_Cshape = preload("res://Main/Player/PlayerStandingCshape.tres")
 
 
 func _physics_process(delta):
