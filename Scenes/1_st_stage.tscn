@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0tf1medast48"]
+
+[ext_resource type="Script" path="res://Scenes/1_st_stage.gd" id="1_ex1x8"]
+[ext_resource type="PackedScene" uid="uid://bo8adj2cd5wub" path="res://Scenes/player.tscn" id="2_jsslq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rwex"]
+size = Vector2(1140, 20)
+
+[node name="1st Stage" type="Node2D"]
+script = ExtResource("1_ex1x8")
+
+[node name="Player" parent="." instance=ExtResource("2_jsslq")]
+position = Vector2(19, 428)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2, 181)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(582, 280)
+shape = SubResource("RectangleShape2D_4rwex")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+position = Vector2(13, 0)
+scale = Vector2(0.988715, 1)
+polygon = PackedVector2Array(0, 270, 0, 290, 1152, 290, 1152, 270)

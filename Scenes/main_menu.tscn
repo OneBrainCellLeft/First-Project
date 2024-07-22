@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://ldib1hyv848k"]
+
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_jdo4w"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_jdo4w")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 272.0
+offset_bottom = 316.0
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[node name="Settings" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 336.0
+offset_right = 272.0
+offset_bottom = 396.0
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[node name="Quit Game" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 416.0
+offset_right = 272.0
+offset_bottom = 476.0
+theme_override_font_sizes/font_size = 30
+text = "Quit Game
+"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Quit Game" to="." method="_on_quit_game_pressed"]
