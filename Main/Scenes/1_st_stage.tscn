@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl4ti1840txmg"]
+[gd_scene load_steps=5 format=3 uid="uid://cl4ti1840txmg"]
 
 [ext_resource type="Script" path="res://Main/Scripts/1_st_stage.gd" id="1_qiyat"]
 [ext_resource type="PackedScene" uid="uid://ctks4vnotun50" path="res://Main/Scenes/player.tscn" id="2_btwmd"]
@@ -6,20 +6,32 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rwex"]
 size = Vector2(1140, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtxrw"]
+size = Vector2(79, 174)
+
 [node name="1st Stage" type="Node2D"]
 script = ExtResource("1_qiyat")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2, 181)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(582, 280)
-shape = SubResource("RectangleShape2D_4rwex")
-
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 position = Vector2(13, 0)
 scale = Vector2(0.988715, 1)
 polygon = PackedVector2Array(0, 270, 0, 290, 1152, 290, 1152, 270)
+
+[node name="Polygon2D2" type="Polygon2D" parent="StaticBody2D"]
+position = Vector2(51, -2279.27)
+scale = Vector2(0.0685764, 8.72506)
+polygon = PackedVector2Array(0, 270, 0, 290, 1152, 290, 1152, 270)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(582, 280)
+shape = SubResource("RectangleShape2D_4rwex")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(90.5, 164)
+shape = SubResource("RectangleShape2D_dtxrw")
 
 [node name="Player" parent="." instance=ExtResource("2_btwmd")]
 position = Vector2(31, 425)

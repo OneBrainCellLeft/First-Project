@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Main/Scripts/Player.gd" id="1_jy7jf"]
 [ext_resource type="Shape2D" path="res://Scenes/PlayerStandingCshape.tres" id="2_kwbxy"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="3_0teme"]
-[ext_resource type="Texture2D" uid="uid://73r5sowouqj5" path="res://Main/Player/PlayerSpriteCrouching.png" id="4_xp88e"]
-[ext_resource type="Texture2D" uid="uid://vk4xlt442t1n" path="res://Main/Player/PlayerSpritesStanding.png" id="5_07gp0"]
+[ext_resource type="Texture2D" uid="uid://b5ouxtklikvdv" path="res://Main/Player/PlayerSpriteCrouching.png" id="4_xp88e"]
+[ext_resource type="Texture2D" uid="uid://csoqmjht1w4xw" path="res://Main/Player/PlayerSpritesStanding.png" id="5_07gp0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uxsbp"]
 animations = [{
@@ -56,8 +56,7 @@ script = ExtResource("3_0teme")
 position = Vector2(0, 6)
 scale = Vector2(0.129032, 0.131868)
 sprite_frames = SubResource("SpriteFrames_uxsbp")
-animation = &"MOVE"
-autoplay = "IDLE"
+animation = &"IDLE"
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
 wait_time = 0.1
