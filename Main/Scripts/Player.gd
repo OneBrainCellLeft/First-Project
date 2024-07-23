@@ -20,7 +20,7 @@ var Standing_Cshape = preload("res://Main/Player/PlayerStandingCshape.tres")
 
 func _physics_process(delta):
 	if !is_on_floor():
-		velocity.y += get_gravity(velocity) * delta
+		velocity.y += get_gravity() * delta
 	
 	if !Crouching:
 		Jump()
@@ -83,7 +83,7 @@ func get_speed():
 		return SPEED
 	return CROUCH_SPEED 
 
-func get_gravity(velocity: Vector2):
+func get_gravity():
 	if velocity.y <= 0:
 		return GRAVITY
 	if Input.is_action_pressed("Fast_Fall"):

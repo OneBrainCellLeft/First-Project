@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ctks4vnotun50"]
 
 [ext_resource type="Script" path="res://Main/Scripts/Player.gd" id="1_jy7jf"]
-[ext_resource type="Shape2D" path="res://Scenes/PlayerStandingCshape.tres" id="2_kwbxy"]
+[ext_resource type="Shape2D" uid="uid://be58w2c3wmnn8" path="res://Main/Player/PlayerStandingCshape.tres" id="2_kwbxy"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="3_0teme"]
 [ext_resource type="Texture2D" uid="uid://b5ouxtklikvdv" path="res://Main/Player/PlayerSpriteCrouching.png" id="4_xp88e"]
 [ext_resource type="Texture2D" uid="uid://csoqmjht1w4xw" path="res://Main/Player/PlayerSpritesStanding.png" id="5_07gp0"]
