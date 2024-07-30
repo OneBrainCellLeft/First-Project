@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsn7kwrtld36g"]
+
+[ext_resource type="Script" path="res://Main/Scripts/Player.gd" id="1_7t45k"]
+[ext_resource type="Shape2D" uid="uid://be58w2c3wmnn8" path="res://Main/Player/PlayerStandingCshape.tres" id="2_07w5g"]
+[ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="3_ke0ps"]
+[ext_resource type="Texture2D" uid="uid://b5ouxtklikvdv" path="res://Main/Player/PlayerSpriteCrouching.png" id="4_qb7yh"]
+[ext_resource type="Texture2D" uid="uid://csoqmjht1w4xw" path="res://Main/Player/PlayerSpritesStanding.png" id="5_flk4m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxsbp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qb7yh")
+}],
+"loop": true,
+"name": &"CROUCH",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_flk4m")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_flk4m")
+}],
+"loop": true,
+"name": &"JUMP",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_flk4m")
+}],
+"loop": true,
+"name": &"MOVE",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(239, 182)
+script = ExtResource("1_7t45k")
+metadata/_edit_horizontal_guides_ = [188.0, 193.0]
+metadata/_edit_vertical_guides_ = []
+
+[node name="CameraSmoothing" type="Node2D" parent="."]
+script = ExtResource("3_ke0ps")
+
+[node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="CameraSmoothing"]
+position = Vector2(0, 5.5)
+scale = Vector2(0.129032, 0.129213)
+sprite_frames = SubResource("SpriteFrames_uxsbp")
+animation = &"IDLE"
+
+[node name="Collisions" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = ExtResource("2_07w5g")
+
+[node name="JumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(1.24, 1.24)
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+
+[node name="CeillingDetection" type="RayCast2D" parent="."]
+position = Vector2(-5, 7)
+target_position = Vector2(0, -18)
+
+[node name="CeillingDetection2" type="RayCast2D" parent="."]
+position = Vector2(5, 7)
+target_position = Vector2(0, -18)
+
+[node name="UpperStepDetectionRight" type="RayCast2D" parent="."]
+position = Vector2(2, 6)
+target_position = Vector2(9, 0)
+
+[node name="UpperStepDetectionLeft" type="RayCast2D" parent="."]
+position = Vector2(-2, 6)
+target_position = Vector2(-9, 0)
+
+[node name="LowerStepDetectionRight" type="RayCast2D" parent="."]
+position = Vector2(2, 11)
+target_position = Vector2(9, 0)
+
+[node name="LowerStepDetectionLeft" type="RayCast2D" parent="."]
+position = Vector2(-2, 11)
+target_position = Vector2(-9, 0)
+
+[connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]

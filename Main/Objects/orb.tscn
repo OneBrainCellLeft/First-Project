@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbnxi8nd0abcu"]
+
+[sub_resource type="GDScript" id="GDScript_jhrry"]
+script/source = "extends Area2D
+
+func _on_body_entered(body):
+	if body.name == \"Player\":
+		Utils.Orbs += 1
+		queue_free()
+"
+
+[sub_resource type="SphereMesh" id="SphereMesh_fbe5a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6o2c1"]
+radius = 8.0
+
+[node name="Area2D" type="Area2D"]
+script = SubResource("GDScript_jhrry")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.537255, 0, 0.0745098, 1)
+position = Vector2(38.805, 95)
+scale = Vector2(16.0181, 16)
+mesh = SubResource("SphereMesh_fbe5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(38.805, 95)
+shape = SubResource("CircleShape2D_6o2c1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

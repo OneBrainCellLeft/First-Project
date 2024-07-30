@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv10iikcr4elf"]
+
+[sub_resource type="GDScript" id="GDScript_685f3"]
+script/source = "extends StaticBody2D
+
+func _on_area_2d_body_entered(body):
+	if body.name == \"Player\":
+		body.velocity.y = -800
+"
+
+[sub_resource type="QuadMesh" id="QuadMesh_mih04"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mh17d"]
+size = Vector2(53, 4)
+
+[sub_resource type="QuadMesh" id="QuadMesh_8na1f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpxvx"]
+size = Vector2(41, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5th6a"]
+size = Vector2(41, 3)
+
+[node name="strong_jump_pad_right" type="StaticBody2D"]
+script = SubResource("GDScript_685f3")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.564706, 0.368627, 0.0196078, 1)
+position = Vector2(258.5, 225)
+scale = Vector2(53, 3.99999)
+mesh = SubResource("QuadMesh_mih04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(258.5, 225)
+shape = SubResource("RectangleShape2D_mh17d")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Area2D"]
+modulate = Color(0.721569, 0.552941, 0.0666667, 1)
+position = Vector2(264.5, 221.5)
+scale = Vector2(41, 3.00002)
+mesh = SubResource("QuadMesh_8na1f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(264.5, 221)
+shape = SubResource("RectangleShape2D_vpxvx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(264.5, 221.5)
+shape = SubResource("RectangleShape2D_5th6a")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

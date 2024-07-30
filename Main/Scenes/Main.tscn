@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://b72htrbkvvfb0"]
+
+[ext_resource type="Script" path="res://Main/Scripts/main.gd" id="1_oeuda"]
+[ext_resource type="PackedScene" uid="uid://dsn7kwrtld36g" path="res://Main/Player/player.tscn" id="2_swrd7"]
+[ext_resource type="PackedScene" uid="uid://c82jl6wutky5u" path="res://Main/Objects/large_platform.tscn" id="3_w14qk"]
+[ext_resource type="PackedScene" uid="uid://cgtv5lqwcqoql" path="res://Main/Scenes/pause_menu.tscn" id="4_35hhw"]
+[ext_resource type="PackedScene" uid="uid://ba2lwsvq4jn70" path="res://Main/Objects/box.tscn" id="4_ext0i"]
+[ext_resource type="PackedScene" uid="uid://cv10iikcr4elf" path="res://Main/Objects/strong_jump_pad_right.tscn" id="7_lq8nb"]
+[ext_resource type="PackedScene" uid="uid://511t754krte5" path="res://Main/Objects/small_platform.tscn" id="7_mtrq0"]
+[ext_resource type="PackedScene" uid="uid://cbnxi8nd0abcu" path="res://Main/Objects/orb.tscn" id="8_sk7e3"]
+[ext_resource type="PackedScene" uid="uid://dey50coq4lo43" path="res://Main/Objects/teleporter.tscn" id="9_mslvo"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_oeuda")
+metadata/_edit_horizontal_guides_ = []
+metadata/_edit_vertical_guides_ = [52.0]
+
+[node name="Player" parent="." instance=ExtResource("2_swrd7")]
+position = Vector2(1947, 314)
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="Large Platform" parent="Terrain" instance=ExtResource("3_w14qk")]
+position = Vector2(-29, 278)
+
+[node name="Large Platform2" parent="Terrain" instance=ExtResource("3_w14qk")]
+position = Vector2(519, 244)
+
+[node name="Large Platform3" parent="Terrain" instance=ExtResource("3_w14qk")]
+position = Vector2(1164, 183)
+
+[node name="Large Platform4" parent="Terrain" instance=ExtResource("3_w14qk")]
+position = Vector2(1631, 183)
+
+[node name="Large Platform5" parent="Terrain" instance=ExtResource("3_w14qk")]
+position = Vector2(2098, 183)
+
+[node name="Large Platform6" parent="Terrain" instance=ExtResource("3_w14qk")]
+position = Vector2(2906, -182)
+
+[node name="Large Platform8" parent="Terrain" instance=ExtResource("3_w14qk")]
+position = Vector2(3701, -590)
+
+[node name="Large Platform9" parent="Terrain" instance=ExtResource("3_w14qk")]
+position = Vector2(736, -496)
+
+[node name="small_platform" parent="Terrain" instance=ExtResource("7_mtrq0")]
+position = Vector2(1540, -424)
+
+[node name="Box" parent="Terrain" instance=ExtResource("4_ext0i")]
+position = Vector2(1347, 31)
+
+[node name="Box2" parent="Terrain" instance=ExtResource("4_ext0i")]
+position = Vector2(1347, -113)
+
+[node name="Box3" parent="Terrain" instance=ExtResource("4_ext0i")]
+position = Vector2(1347, -256)
+
+[node name="Box4" parent="Terrain" instance=ExtResource("4_ext0i")]
+position = Vector2(1347, -330)
+
+[node name="strong_jump_pad_right" parent="Terrain" instance=ExtResource("7_lq8nb")]
+position = Vector2(2310, 121)
+
+[node name="strong_jump_pad_right2" parent="Terrain" instance=ExtResource("7_lq8nb")]
+position = Vector2(3118, -244)
+
+[node name="Orb" parent="Terrain" instance=ExtResource("8_sk7e3")]
+position = Vector2(1553, -154)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("4_35hhw")]
+
+[node name="Orbs" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 17.0
+offset_right = 62.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 20
+text = "Orbs"
+
+[node name="teleporter" parent="." instance=ExtResource("9_mslvo")]
+position = Vector2(3747, 339)
+
+[node name="Large Platform" parent="." instance=ExtResource("3_w14qk")]
+position = Vector2(3479, 178)
