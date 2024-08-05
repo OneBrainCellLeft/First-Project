@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj8h8rj8p6qcs"]
+
+[sub_resource type="GDScript" id="GDScript_ipjwl"]
+script/source = "extends Area2D
+
+func _on_body_entered(body):
+	if body.name == \"Player\":
+		Utils.squares += 1
+		queue_free()
+"
+
+[sub_resource type="QuadMesh" id="QuadMesh_g1mgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjaft"]
+size = Vector2(6, 6)
+
+[node name="square" type="Area2D"]
+script = SubResource("GDScript_ipjwl")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.113725, 0.254902, 0.0784314, 1)
+position = Vector2(-1.19209e-07, -8.34465e-07)
+scale = Vector2(6, 6)
+mesh = SubResource("QuadMesh_g1mgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bjaft")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

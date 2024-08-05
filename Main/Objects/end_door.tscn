@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://84afkwmec82r"]
+
+[sub_resource type="GDScript" id="GDScript_ynqxm"]
+script/source = "extends StaticBody2D
+
+func _on_area_2d_body_entered(body):
+	if body.name == \"Player\":
+		if Utils.end_valid == true:
+			Utils.triangle = true
+			Utils.Save_Game()
+			get_tree().change_scene_to_file(\"res://Main/Scenes/main_menu.tscn\")
+		elif Utils.end_valid == false:
+			Utils.not_triangle = true
+"
+
+[sub_resource type="QuadMesh" id="QuadMesh_sq6oc"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_4h8ad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcie3"]
+size = Vector2(17, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dicu"]
+size = Vector2(2, 37)
+
+[node name="end_door" type="StaticBody2D"]
+script = SubResource("GDScript_ynqxm")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-0.5, -18.5)
+scale = Vector2(25, 37)
+mesh = SubResource("QuadMesh_sq6oc")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-0.5, -17.5)
+scale = Vector2(21, 35)
+mesh = SubResource("QuadMesh_4h8ad")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(3, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3.5, -16.5)
+shape = SubResource("RectangleShape2D_dcie3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11, -18.5)
+shape = SubResource("RectangleShape2D_6dicu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b72htrbkvvfb0"]
+[gd_scene load_steps=14 format=3 uid="uid://b72htrbkvvfb0"]
 
 [ext_resource type="Script" path="res://Main/Scripts/main.gd" id="1_oeuda"]
 [ext_resource type="PackedScene" uid="uid://dsn7kwrtld36g" path="res://Main/Player/player.tscn" id="2_swrd7"]
@@ -9,14 +9,43 @@
 [ext_resource type="PackedScene" uid="uid://511t754krte5" path="res://Main/Objects/small_platform.tscn" id="7_mtrq0"]
 [ext_resource type="PackedScene" uid="uid://cbnxi8nd0abcu" path="res://Main/Objects/orb.tscn" id="8_sk7e3"]
 [ext_resource type="PackedScene" uid="uid://dey50coq4lo43" path="res://Main/Objects/teleporter.tscn" id="9_mslvo"]
+[ext_resource type="PackedScene" uid="uid://84afkwmec82r" path="res://Main/Objects/end_door.tscn" id="10_82b6i"]
+[ext_resource type="PackedScene" uid="uid://bj8h8rj8p6qcs" path="res://Main/Objects/square.tscn" id="11_4l8h1"]
+
+[sub_resource type="GDScript" id="GDScript_h2j1u"]
+script/source = "extends StaticBody2D
+
+func _on_area_2d_body_entered(body):
+	if body.name == \"Player\":
+		body.global_position = Vector2(2445,318)
+"
+
+[sub_resource type="GDScript" id="GDScript_0sl6q"]
+script/source = "extends Label
+
+func _ready():
+	Utils.not_triangle = false
+
+func _process(_delta):
+	if Utils.not_triangle == true:
+		$\".\".visible = true
+
+func _on_yes_pressed():
+	Utils.Save_Game()
+	get_tree().change_scene_to_file(\"res://Main/Scenes/main_menu.tscn\")
+
+func _on_no_pressed():
+	Utils.not_triangle = false
+	$\".\".visible = false
+"
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_oeuda")
-metadata/_edit_horizontal_guides_ = []
-metadata/_edit_vertical_guides_ = [52.0]
+metadata/_edit_horizontal_guides_ = [948.0]
+metadata/_edit_vertical_guides_ = [0.0]
 
 [node name="Player" parent="." instance=ExtResource("2_swrd7")]
-position = Vector2(1947, 314)
+position = Vector2(24, 420)
 
 [node name="Terrain" type="Node2D" parent="."]
 
@@ -37,6 +66,9 @@ position = Vector2(2098, 183)
 
 [node name="Large Platform6" parent="Terrain" instance=ExtResource("3_w14qk")]
 position = Vector2(2906, -182)
+
+[node name="Large Platform7" parent="Terrain" instance=ExtResource("3_w14qk")]
+position = Vector2(3479, 178)
 
 [node name="Large Platform8" parent="Terrain" instance=ExtResource("3_w14qk")]
 position = Vector2(3701, -590)
@@ -65,23 +97,194 @@ position = Vector2(2310, 121)
 [node name="strong_jump_pad_right2" parent="Terrain" instance=ExtResource("7_lq8nb")]
 position = Vector2(3118, -244)
 
-[node name="Orb" parent="Terrain" instance=ExtResource("8_sk7e3")]
-position = Vector2(1553, -154)
+[node name="teleporter" parent="Terrain" instance=ExtResource("9_mslvo")]
+position = Vector2(3747, 339)
+
+[node name="Large Platform10" parent="Terrain" instance=ExtResource("3_w14qk")]
+position = Vector2(4167, -590)
+
+[node name="end_door" parent="Terrain" instance=ExtResource("10_82b6i")]
+position = Vector2(4652, -425)
+
+[node name="small_platform2" parent="Terrain" instance=ExtResource("7_mtrq0")]
+position = Vector2(1063, 373)
+
+[node name="small_platform3" parent="Terrain" instance=ExtResource("7_mtrq0")]
+position = Vector2(1298, 469)
+
+[node name="small_platform4" parent="Terrain" instance=ExtResource("7_mtrq0")]
+position = Vector2(1820, 564)
+
+[node name="small_platform5" parent="Terrain" instance=ExtResource("7_mtrq0")]
+position = Vector2(1555, 564)
+
+[node name="small_platform6" parent="Terrain" instance=ExtResource("7_mtrq0")]
+position = Vector2(2078, 564)
+
+[node name="small_platform7" parent="Terrain" instance=ExtResource("7_mtrq0")]
+position = Vector2(2172, 564)
+
+[node name="small_platform8" parent="Terrain" instance=ExtResource("7_mtrq0")]
+position = Vector2(2266, 564)
+
+[node name="small_platform9" parent="Terrain" instance=ExtResource("7_mtrq0")]
+position = Vector2(2360, 564)
+
+[node name="teleporter2" parent="Terrain" instance=ExtResource("9_mslvo")]
+position = Vector2(2472, 946)
+script = SubResource("GDScript_h2j1u")
+
+[node name="small_platform10" parent="Terrain" instance=ExtResource("7_mtrq0")]
+position = Vector2(2454, 564)
+
+[node name="Collectibles" type="Node2D" parent="."]
+
+[node name="square30" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(4549, -444)
+
+[node name="square29" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(4283, -444)
+
+[node name="square28" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(3967, -443)
+
+[node name="square27" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(4254, -444)
+
+[node name="square26" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(4221, -444)
+
+[node name="square25" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(3938, -443)
+
+[node name="square18" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(3909, -443)
+
+[node name="square24" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1866, 928)
+
+[node name="square23" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1600, 928)
+
+[node name="square22" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1368, 835)
+
+[node name="square21" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1320, 835)
+
+[node name="square20" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1108, 740)
+
+[node name="square19" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(3565, 257)
+
+[node name="square17" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(3690, -500)
+
+[node name="square16" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(3464, -196)
+
+[node name="square15" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(2838, -125)
+
+[node name="square14" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(2656, 170)
+
+[node name="square13" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1398, -302)
+
+[node name="square12" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1046, -343)
+
+[node name="square11" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1017, -343)
+
+[node name="square10" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(988, -343)
+
+[node name="square9" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1748, 332)
+
+[node name="square8" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1704, 332)
+
+[node name="square7" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1660, 332)
+
+[node name="square6" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1329, 336)
+
+[node name="square5" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1140, 313)
+
+[node name="square4" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(1042, 359)
+
+[node name="square3" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(499, 384)
+
+[node name="square2" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(619, 401)
+
+[node name="square" parent="Collectibles" instance=ExtResource("11_4l8h1")]
+position = Vector2(646, 401)
+
+[node name="orb" parent="Collectibles" instance=ExtResource("8_sk7e3")]
+position = Vector2(2257, 838)
+
+[node name="orb2" parent="Collectibles" instance=ExtResource("8_sk7e3")]
+position = Vector2(1547, -152)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("4_35hhw")]
 
 [node name="Orbs" type="Label" parent="UI"]
-offset_left = 20.0
-offset_top = 17.0
-offset_right = 62.0
-offset_bottom = 44.0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 56.0
+offset_bottom = 38.0
 theme_override_font_sizes/font_size = 20
 text = "Orbs"
+metadata/_edit_use_anchors_ = true
 
-[node name="teleporter" parent="." instance=ExtResource("9_mslvo")]
-position = Vector2(3747, 339)
+[node name="Squares" type="Label" parent="UI"]
+offset_left = 9.0
+offset_top = 37.0
+offset_right = 87.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 20
+text = "Squares"
+metadata/_edit_use_anchors_ = true
 
-[node name="Large Platform" parent="." instance=ExtResource("3_w14qk")]
-position = Vector2(3479, 178)
+[node name="BeforeEnd" type="Label" parent="UI"]
+visible = false
+offset_left = 331.0
+offset_top = 157.0
+offset_right = 863.0
+offset_bottom = 519.0
+text = "You did not get all collectibles, you need 2 orbs and 30 squares to proceed and get a triangle as a reward.
+Do you still want to proceed ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = SubResource("GDScript_0sl6q")
+
+[node name="Yes" type="Button" parent="UI/BeforeEnd"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 287.0
+offset_right = 99.0
+offset_bottom = 322.0
+text = "Yes"
+
+[node name="No" type="Button" parent="UI/BeforeEnd"]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 287.0
+offset_right = 505.0
+offset_bottom = 322.0
+text = "No"
+
+[connection signal="pressed" from="UI/BeforeEnd/Yes" to="UI/BeforeEnd" method="_on_yes_pressed"]
+[connection signal="pressed" from="UI/BeforeEnd/No" to="UI/BeforeEnd" method="_on_no_pressed"]

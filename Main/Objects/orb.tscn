@@ -5,7 +5,7 @@ script/source = "extends Area2D
 
 func _on_body_entered(body):
 	if body.name == \"Player\":
-		Utils.Orbs += 1
+		Utils.orbs += 1
 		queue_free()
 "
 
@@ -14,7 +14,7 @@ func _on_body_entered(body):
 [sub_resource type="CircleShape2D" id="CircleShape2D_6o2c1"]
 radius = 8.0
 
-[node name="Area2D" type="Area2D"]
+[node name="orb" type="Area2D"]
 script = SubResource("GDScript_jhrry")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]

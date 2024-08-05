@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4xn0m1dd6fw5"]
+[gd_scene load_steps=3 format=3 uid="uid://c4xn0m1dd6fw5"]
 
 [ext_resource type="Script" path="res://Main/Scripts/main_menu.gd" id="1_e2n6s"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_6cltc"]
 
 [node name="Main Menu" type="Node2D"]
 position = Vector2(461, 210)
@@ -14,10 +16,10 @@ offset_bottom = 158.0
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Play"
+text = "New Game"
 
 [node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -30,6 +32,18 @@ theme_override_font_sizes/font_size = 30
 text = "Quit Game
 "
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[node name="GoldenTriangle" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="GoldenTriangle"]
+modulate = Color(0.694118, 0.592157, 0.105882, 1)
+position = Vector2(610, -144)
+scale = Vector2(-122.363, -108.878)
+mesh = SubResource("PrismMesh_6cltc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GoldenTriangle"]
+polygon = PackedVector2Array(549, -90, 610, -199, 671, -90)
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]

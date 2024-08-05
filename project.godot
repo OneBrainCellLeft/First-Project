@@ -12,6 +12,8 @@ config_version=5
 
 config/name="First Project"
 run/main_scene="res://Main/Scenes/main_menu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="SaveSystem"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 

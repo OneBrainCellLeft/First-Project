@@ -35,6 +35,7 @@ func _physics_process(delta):
 	if !Crouching:
 		Jump()
 	
+	Utils.Triangle_Valid()
 	Move()
 	Step_up()
 	Look_up_or_down()

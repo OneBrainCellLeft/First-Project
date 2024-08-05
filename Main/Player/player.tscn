@@ -41,7 +41,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(239, 182)
 script = ExtResource("1_7t45k")
 metadata/_edit_horizontal_guides_ = [188.0, 193.0]
@@ -83,19 +83,19 @@ target_position = Vector2(0, -18)
 
 [node name="UpperStepDetectionRight" type="RayCast2D" parent="."]
 position = Vector2(2, 6)
-target_position = Vector2(9, 0)
+target_position = Vector2(6, 0)
 
 [node name="UpperStepDetectionLeft" type="RayCast2D" parent="."]
 position = Vector2(-2, 6)
-target_position = Vector2(-9, 0)
+target_position = Vector2(-6, 0)
 
 [node name="LowerStepDetectionRight" type="RayCast2D" parent="."]
 position = Vector2(2, 11)
-target_position = Vector2(9, 0)
+target_position = Vector2(6, 0)
 
 [node name="LowerStepDetectionLeft" type="RayCast2D" parent="."]
 position = Vector2(-2, 11)
-target_position = Vector2(-9, 0)
+target_position = Vector2(-6, 0)
 
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
