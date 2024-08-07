@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgtv5lqwcqoql"]
 
-[ext_resource type="Script" path="res://Main/Scenes/pause_menu.gd" id="1_kav6v"]
+[ext_resource type="Script" path="res://Main/Scripts/pause_menu.gd" id="1_rfn3b"]
 
 [sub_resource type="Animation" id="Animation_vw1a3"]
 length = 0.001
@@ -47,7 +47,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_kav6v")
+script = ExtResource("1_rfn3b")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 visible = false
