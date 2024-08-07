@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d38wqnjf70qlb"]
+[gd_scene load_steps=13 format=3 uid="uid://d38wqnjf70qlb"]
 
 [ext_resource type="Script" path="res://Main/Scripts/main.gd" id="1_oeuda"]
 [ext_resource type="PackedScene" uid="uid://dsn7kwrtld36g" path="res://Main/Player/player.tscn" id="2_swrd7"]
@@ -18,25 +18,6 @@ script/source = "extends StaticBody2D
 func _on_area_2d_body_entered(body):
 	if body.name == \"Player\":
 		body.global_position = Vector2(2445,318)
-"
-
-[sub_resource type="GDScript" id="GDScript_0sl6q"]
-script/source = "extends Label
-
-func _ready():
-	Utils.not_triangle = false
-
-func _process(_delta):
-	if Utils.not_triangle == true:
-		$\".\".visible = true
-
-func _on_yes_pressed():
-	Utils.Save_Game()
-	get_tree().change_scene_to_file(\"res://Main/Scenes/main_menu.tscn\")
-
-func _on_no_pressed():
-	Utils.not_triangle = false
-	$\".\".visible = false
 "
 
 [node name="Main" type="Node2D"]
@@ -268,7 +249,6 @@ Do you still want to proceed ?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-script = SubResource("GDScript_0sl6q")
 
 [node name="Yes" type="Button" parent="UI/BeforeEnd"]
 layout_mode = 0
