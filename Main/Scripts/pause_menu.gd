@@ -24,7 +24,7 @@ func _on_resume_pressed():
 
 func _on_save_pressed():
 	Utils.Save_Game()
-	Resume()
+	
 
 func _on_main_menu_pressed():
 	get_tree().change_scene_to_file("res://Main/Scenes/main_menu.tscn")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dsn7kwrtld36g"]
 
-[ext_resource type="Script" path="res://Main/Scripts/Player.gd" id="1_7t45k"]
+[ext_resource type="Script" path="res://Main/Player/player.gd" id="1_pup3q"]
 [ext_resource type="Shape2D" uid="uid://be58w2c3wmnn8" path="res://Main/Player/PlayerStandingCshape.tres" id="2_07w5g"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="3_ke0ps"]
 [ext_resource type="Texture2D" uid="uid://b5ouxtklikvdv" path="res://Main/Player/PlayerSpriteCrouching.png" id="4_qb7yh"]
@@ -43,7 +43,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(239, 182)
-script = ExtResource("1_7t45k")
+script = ExtResource("1_pup3q")
 metadata/_edit_horizontal_guides_ = [188.0, 193.0]
 metadata/_edit_vertical_guides_ = []
 
