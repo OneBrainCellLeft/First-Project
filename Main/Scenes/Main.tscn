@@ -266,5 +266,5 @@ offset_right = 505.0
 offset_bottom = 322.0
 text = "No"
 
-[connection signal="pressed" from="UI/BeforeEnd/Yes" to="UI/BeforeEnd" method="_on_yes_pressed"]
-[connection signal="pressed" from="UI/BeforeEnd/No" to="UI/BeforeEnd" method="_on_no_pressed"]
+[connection signal="pressed" from="UI/BeforeEnd/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="UI/BeforeEnd/No" to="." method="_on_no_pressed"]
